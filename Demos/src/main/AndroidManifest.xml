@@ -10,6 +10,7 @@
   <application
       android:name=".AlfredosUserApplication"
       android:label="Alfredo's"
+      android:icon="@mipmap/ic_launcher"
       android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
 
     <activity
