@@ -2,6 +2,7 @@ package com.estimote.examples.demos;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class ViewCartActivity extends Activity {
@@ -17,6 +18,15 @@ public class ViewCartActivity extends Activity {
 
         orderButton.setText(String.format("Place Order (Total: %.2f €)", (float)cart.getTotal() / 100));
 
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
 }
+
+

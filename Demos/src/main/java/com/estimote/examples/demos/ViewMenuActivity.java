@@ -2,12 +2,23 @@ package com.estimote.examples.demos;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -17,21 +28,16 @@ import java.util.ArrayList;
  */
 public class ViewMenuActivity extends Activity {
 
+  protected ArrayList<FoodItem> products = new ArrayList<>();
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    final Cart cart = AlfredosUserApplication.cart;
-
     setContentView(R.layout.menu);
 
-    // Abfrage Produktliste
-    ArrayList<FoodItem> valueList = new ArrayList<>();
-    valueList.add(new FoodItem("Pizza Tonno", "101", 790));
-    valueList.add(new FoodItem("Pizza Salame", "102", 790));
-    valueList.add(new FoodItem("Spaghetti Napoli", "201", 890));
+    new GetProductsTask().execute();
 
-    LinearLayout productsContainer = (LinearLayout) findViewById(R.id.products);
     final Button orderButton = (Button) findViewById(R.id.order);
 
     orderButton.setOnClickListener(new View.OnClickListener() {
@@ -54,21 +60,58 @@ public class ViewMenuActivity extends Activity {
       }
     });
 
-    //foreach
-    for (final FoodItem item:valueList) {
-      Button button = new Button(getApplicationContext());
-      button.setText(item.toString());
-      button.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            cart.addItem(item);
-            orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float)cart.getTotal() / 100));
-            Toast.makeText(getApplicationContext(), String.format("%s was added to your cart.", item.getName()), Toast.LENGTH_SHORT).show();
-          }
+  }
+
+  private class GetProductsTask extends AsyncTask<String, Void, Integer> {
+
+    protected Integer doInBackground(String... params) {
+      try {
+        URL url = new URL("http://10.0.2.2:9000/products");
+        HttpClient client = new DefaultHttpClient();
+        HttpGet get = new HttpGet(url.toString());
+        HttpResponse response = client.execute(get);
+        String json = EntityUtils.toString(response.getEntity());
+        JSONObject jsonResponse = new JSONObject(json);
+        for (int i = 0; i < jsonResponse.getJSONArray("foods").length(); i++) {
+          products.add(getFoodItemFromJson(jsonResponse.getJSONArray("foods").getJSONObject(i)));
         }
-      );
-      productsContainer.addView(button);
+      } catch (IOException | JSONException e) {
+        e.printStackTrace();
+      }
+      return 0;
+    }
+
+    private FoodItem getFoodItemFromJson(JSONObject json) throws JSONException {
+      return new FoodItem(json.getString("name"), json.getString("id"), (int)json.getDouble("price") * 100);
+    }
+
+    protected void onPostExecute(Integer result) {
+      fillList();
+    }
+
+    protected void fillList()
+    {
+      final Cart cart = AlfredosUserApplication.cart;
+      final Button orderButton = (Button) findViewById(R.id.order);
+
+      LinearLayout productsContainer = (LinearLayout) findViewById(R.id.products);
+      //foreach
+      for (final FoodItem item : products) {
+        Button button = new Button(getApplicationContext());
+        button.setText(item.toString());
+        button.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                      cart.addItem(item);
+                                      orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float) cart.getTotal() / 100));
+                                      Toast.makeText(getApplicationContext(), String.format("%s was added to your cart.", item.getName()), Toast.LENGTH_SHORT).show();
+                                    }
+                                  }
+        );
+        productsContainer.addView(button);
+      }
     }
 
   }
 }
+
