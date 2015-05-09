@@ -11,6 +11,8 @@ import com.estimote.sdk.EstimoteSDK;
  */
 public class AlfredosUserApplication extends Application {
 
+  public static Cart cart = new Cart();
+
   @Override
   public void onCreate() {
     super.onCreate();

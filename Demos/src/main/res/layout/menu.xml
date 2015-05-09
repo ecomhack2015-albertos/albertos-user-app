@@ -26,6 +26,6 @@
         android:id="@+id/order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Place Order" />
+        android:text="Go To Cart" />
 
 </LinearLayout>

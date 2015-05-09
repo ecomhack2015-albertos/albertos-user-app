@@ -1,6 +1,7 @@
 package com.estimote.examples.demos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,15 +15,13 @@ import java.util.ArrayList;
  *
  * @author wiktor@estimote.com (Wiktor Gworek)
  */
-public class ShowMenuActivity extends Activity {
-
-  private Cart cart;
+public class ViewMenuActivity extends Activity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    cart = new Cart();
+    final Cart cart = AlfredosUserApplication.cart;
 
     setContentView(R.layout.menu);
 
@@ -35,6 +34,14 @@ public class ShowMenuActivity extends Activity {
     LinearLayout productsContainer = (LinearLayout) findViewById(R.id.products);
     final Button orderButton = (Button) findViewById(R.id.order);
 
+    orderButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), ViewCartActivity.class);
+        startActivity(intent);
+      }
+    });
 
     //foreach
     for (final FoodItem item:valueList) {
@@ -44,7 +51,7 @@ public class ShowMenuActivity extends Activity {
           @Override
           public void onClick(View view) {
             cart.addItem(item);
-            orderButton.setText(String.format("Place Order (Total: %.2f €)", (float)cart.getTotal() / 100));
+            orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float)cart.getTotal() / 100));
             Toast.makeText(getApplicationContext(), String.format("%s was added to your cart.", item.getName()), Toast.LENGTH_SHORT).show();
           }
         }
