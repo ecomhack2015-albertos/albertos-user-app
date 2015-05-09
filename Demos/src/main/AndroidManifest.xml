@@ -14,7 +14,7 @@
       android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
 
     <activity
-        android:name="com.estimote.examples.demos.ShowMenuActivity"
+        android:name=".ViewMenuActivity"
         android:label="Alfredo's"
         android:screenOrientation="portrait">
       <intent-filter>
@@ -23,14 +23,15 @@
       </intent-filter>
     </activity>
 
-    <activity
-        android:name="com.estimote.examples.demos.ListBeaconsActivity"
-        android:label="Select Beacon"
-        android:screenOrientation="portrait"/>
+      <activity
+          android:name=".ViewCartActivity"
+          android:label="Cart"
+          android:screenOrientation="portrait">
+      </activity>
 
-    <activity android:name="com.estimote.examples.demos.DistanceBeaconActivity"
-              android:label="Distance Demo"
-              android:screenOrientation="portrait"/>
+      <!--
+      There is no need any longer to declare BeaconService. It is declared in SDK's AndroidManifest.xml
+      and it will be merged to your app's AndroidManifest.xml.
 
     <activity android:name="com.estimote.examples.demos.NotifyDemoActivity"
               android:label="Notify Demo"
