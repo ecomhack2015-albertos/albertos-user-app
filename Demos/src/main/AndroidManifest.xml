@@ -29,6 +29,12 @@
           android:screenOrientation="portrait">
       </activity>
 
+      <activity
+          android:name=".ViewCheckout"
+          android:label="Checkout"
+          android:screenOrientation="portrait">
+      </activity>
+
       <!--
       There is no need any longer to declare BeaconService. It is declared in SDK's AndroidManifest.xml
       and it will be merged to your app's AndroidManifest.xml.
@@ -44,7 +50,7 @@
       <activity android:name="com.estimote.examples.demos.UpdateDemoActivity"
                 android:label="Update Firmware Demo"
                 android:screenOrientation="portrait"/>
-<!--
+<!-
     There is no need any longer to declare BeaconService. It is declared in SDK's AndroidManifest.xml
     and it will be merged to your app's AndroidManifest.xml.
 
@@ -52,8 +58,8 @@
              android:exported="false"/>
 -->
       <activity
-          android:name=".TestActivity"
-          android:label="@string/title_activity_test" >
+          android:name=".RecognizeBeacon"
+          android:label="@string/title_recognize_beacon" >
       </activity>
   </application>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="title_recognize_beacon">TestActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

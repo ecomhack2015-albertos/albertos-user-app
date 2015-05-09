@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Shows the menu for the current date.
  *
- * @author wiktor@estimote.com (Wiktor Gworek)
+ * @author Team Alfredos
  */
 public class ViewMenuActivity extends Activity {
 
@@ -47,6 +47,7 @@ public class ViewMenuActivity extends Activity {
     for (final FoodItem item:valueList) {
       Button button = new Button(getApplicationContext());
       button.setText(item.toString());
+      orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float) cart.getTotal() / 100));
       button.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {

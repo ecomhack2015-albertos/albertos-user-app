@@ -7,7 +7,7 @@ import com.estimote.sdk.EstimoteSDK;
 /**
  * Main {@link Application} object for Demos. It configures EstimoteSDK.
  *
- * @author wiktor@estimote.com (Wiktor Gworek)
+ * @author Team Alfredos
  */
 public class AlfredosUserApplication extends Application {
 
