@@ -86,10 +86,10 @@ public class ViewMenuActivity extends Activity {
     }
 
     protected void onPostExecute(Integer result) {
-      fillList();
+      fillProductList();
     }
 
-    protected void fillList()
+    protected void fillProductList()
     {
       final Cart cart = AlfredosUserApplication.cart;
       final Button orderButton = (Button) findViewById(R.id.order);
