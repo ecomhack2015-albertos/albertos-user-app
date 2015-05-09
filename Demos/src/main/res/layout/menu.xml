@@ -17,7 +17,8 @@
         android:layout_height="454dp"
         android:id="@+id/listView"
         tools:listitem="@android:layout/select_dialog_multichoice"
-        android:fastScrollAlwaysVisible="false" />
+        android:fastScrollAlwaysVisible="false"
+        android:background="#ffff9891" />
 
     <Button
         android:id="@+id/notify_demo_button"

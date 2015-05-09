@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Shows all available demos.
+ * Shows the menu for the current date.
  *
  * @author wiktor@estimote.com (Wiktor Gworek)
  */
@@ -17,6 +23,15 @@ public class ShowMenuActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.menu);
+
+    List valueList = new ArrayList<>();
+    valueList.add("Pizza Tonno");
+    valueList.add("Spaghetti Napoli");
+
+    ListView myListView = (ListView) findViewById(R.id.listView);
+    ListAdapter menuItemsAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, valueList);
+    myListView.setAdapter(menuItemsAdapter);
+
 
     findViewById(R.id.notify_demo_button).setOnClickListener(new View.OnClickListener() {
       @Override
