@@ -25,8 +25,9 @@ public class ShowMenuActivity extends Activity {
     setContentView(R.layout.menu);
 
     List valueList = new ArrayList<>();
-    valueList.add("Pizza Tonno");
-    valueList.add("Spaghetti Napoli");
+    valueList.add(new FoodItem("Pizza Tonno", "101", 790));
+    valueList.add(new FoodItem("Pizza Salame", "102", 790));
+    valueList.add(new FoodItem("Spaghetti Napoli", "201", 890));
 
     ListView myListView = (ListView) findViewById(R.id.listView);
     ListAdapter menuItemsAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, valueList);
