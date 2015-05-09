@@ -16,13 +16,26 @@ import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class TestActivity extends Activity {
 
     private BeaconManager beaconManager;
-    private LeDeviceListAdapter adapter;
     private NotificationManager notificationManager;
     private Region region;
 
@@ -40,7 +53,24 @@ public class TestActivity extends Activity {
         beaconManager.setMonitoringListener(new BeaconManager.MonitoringListener() {
             @Override
             public void onEnteredRegion(Region region, List<Beacon> beacons) {
-                postNotification("Beacon found!");
+                //postNotification("Beacon found!");
+
+                try {
+                    URL url = new URL("http://localhost:9000/orders/");
+                    HttpClient client = new DefaultHttpClient();
+                    HttpPut put = new HttpPut(url.toString());
+
+                    /*List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                    pairs.add(new BasicNameValuePair("key1", "value1"));
+                    pairs.add(new BasicNameValuePair("key2", "value2"));
+                    put.setEntity(new UrlEncodedFormEntity(pairs));*/
+
+                    HttpResponse response = client.execute(put);
+
+                    postNotification("" + response.getStatusLine().getStatusCode());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
