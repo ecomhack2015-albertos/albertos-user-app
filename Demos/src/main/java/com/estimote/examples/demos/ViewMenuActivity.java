@@ -43,6 +43,17 @@ public class ViewMenuActivity extends Activity {
       }
     });
 
+    // TEST //
+    //testActivity code
+    findViewById(R.id.buttonTestActivity).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), TestActivity.class);
+        startActivity(intent);
+      }
+    });
+
     //foreach
     for (final FoodItem item:valueList) {
       Button button = new Button(getApplicationContext());

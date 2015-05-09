@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -48,22 +49,7 @@ public class RecognizeBeacon extends Activity {
             public void onEnteredRegion(Region region, List<Beacon> beacons) {
                 //postNotification("Beacon found!");
 
-                try {
-                    URL url = new URL("http://localhost:9000/orders/");
-                    HttpClient client = new DefaultHttpClient();
-                    HttpPut put = new HttpPut(url.toString());
-
-                    /*List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-                    pairs.add(new BasicNameValuePair("key1", "value1"));
-                    pairs.add(new BasicNameValuePair("key2", "value2"));
-                    put.setEntity(new UrlEncodedFormEntity(pairs));*/
-
-                    HttpResponse response = client.execute(put);
-
-                    postNotification("" + response.getStatusLine().getStatusCode());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                new OrderUpdateTask().execute("abcd");
             }
 
             @Override
@@ -131,5 +117,32 @@ public class RecognizeBeacon extends Activity {
         notification.defaults |= Notification.DEFAULT_SOUND;
         notification.defaults |= Notification.DEFAULT_LIGHTS;
         notificationManager.notify(123, notification);
+    }
+
+    //
+    private class OrderUpdateTask extends AsyncTask<String, Void, Integer> {
+        protected Integer doInBackground(String... orderIDs) {
+            try {
+                URL url = new URL("http://localhost:9000/orders/" + orderIDs[0]);
+                HttpClient client = new DefaultHttpClient();
+                HttpPut put = new HttpPut(url.toString());
+
+                    /*List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                    pairs.add(new BasicNameValuePair("key1", "value1"));
+                    pairs.add(new BasicNameValuePair("key2", "value2"));
+                    put.setEntity(new UrlEncodedFormEntity(pairs));*/
+
+                HttpResponse response = client.execute(put);
+
+                return(response.getStatusLine().getStatusCode());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+
+        protected void onPostExecute(Integer result) {
+            postNotification("" + result);
+        }
     }
 }
