@@ -44,7 +44,7 @@
       <activity android:name="com.estimote.examples.demos.UpdateDemoActivity"
                 android:label="Update Firmware Demo"
                 android:screenOrientation="portrait"/>
-<!--
+<!-
     There is no need any longer to declare BeaconService. It is declared in SDK's AndroidManifest.xml
     and it will be merged to your app's AndroidManifest.xml.
 
