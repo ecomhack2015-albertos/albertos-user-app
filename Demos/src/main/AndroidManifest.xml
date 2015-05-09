@@ -10,7 +10,7 @@
   <application
       android:name=".AlfredosUserApplication"
       android:label="Alfredo's"
-      android:theme="@android:style/Theme.Holo.Light">
+      android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
 
     <activity
         android:name="com.estimote.examples.demos.ShowMenuActivity"
