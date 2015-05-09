@@ -56,7 +56,7 @@ public class TestActivity extends Activity {
                 //postNotification("Beacon found!");
 
                 try {
-                    URL url = new URL("http://localhost:9000/orders/");
+                    URL url = new URL("http://localhost:9000/orders/abcd");
                     HttpClient client = new DefaultHttpClient();
                     HttpPut put = new HttpPut(url.toString());
 
