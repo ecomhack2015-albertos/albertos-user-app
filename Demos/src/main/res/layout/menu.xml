@@ -18,4 +18,10 @@
         android:id="@+id/listView"
         tools:listitem="@android:layout/select_dialog_multichoice"
         android:fastScrollAlwaysVisible="false" />
+
+    <Button
+        android:id="@+id/notify_demo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notify Demo"/>
 </LinearLayout>
