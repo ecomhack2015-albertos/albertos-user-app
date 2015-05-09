@@ -21,4 +21,12 @@ public class FoodItem {
     public String getSku() {
         return sku;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }
