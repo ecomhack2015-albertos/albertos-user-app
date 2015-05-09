@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /**
  * Shows the menu for the current date.
  *
- * @author wiktor@estimote.com (Wiktor Gworek)
+ * @author Team Alfredos
  */
 public class ViewMenuActivity extends Activity {
 
@@ -55,7 +55,7 @@ public class ViewMenuActivity extends Activity {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), TestActivity.class);
+        intent.setClass(getApplicationContext(), RecognizeBeacon.class);
         startActivity(intent);
       }
     });

@@ -18,23 +18,16 @@ import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class TestActivity extends Activity {
+public class RecognizeBeacon extends Activity {
 
     private BeaconManager beaconManager;
     private NotificationManager notificationManager;
@@ -100,21 +93,21 @@ public class TestActivity extends Activity {
                 try {
                     beaconManager.startMonitoring(region);
                 } catch (RemoteException e) {
-                    Log.d(TestActivity.class.getSimpleName(), "Error while starting monitoring");
+                    Log.d(RecognizeBeacon.class.getSimpleName(), "Error while starting monitoring");
                 }
             }
         });
     }
 
     private void postNotification(String msg) {
-        Intent notifyIntent = new Intent(TestActivity.this, TestActivity.class);
+        Intent notifyIntent = new Intent(RecognizeBeacon.this, RecognizeBeacon.class);
         notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivities(
-                TestActivity.this,
+                RecognizeBeacon.this,
                 0,
                 new Intent[]{notifyIntent},
                 PendingIntent.FLAG_UPDATE_CURRENT);
-        Notification notification = new Notification.Builder(TestActivity.this)
+        Notification notification = new Notification.Builder(RecognizeBeacon.this)
                 .setSmallIcon(R.drawable.beacon_gray)
                 .setContentTitle("Notify Demo")
                 .setContentText(msg)
