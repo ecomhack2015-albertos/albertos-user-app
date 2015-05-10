@@ -39,7 +39,7 @@ public class ViewCheckout extends Activity{
         cart = AlfredosUserApplication.cart;
 
         final Button payButton = (Button) findViewById(R.id.payment);
-        payButton.setText(String.format("Confirm Payment and check out with Paypal (Total: %.2f Euro)", (float) cart.getTotal() / 100));
+        payButton.setText(String.format("Confirm Payment and check out with PayPal (Total: %.2f Euro)", (float) cart.getTotal() / 100));
 
         payButton.setOnClickListener(new View.OnClickListener() {
             @Override
