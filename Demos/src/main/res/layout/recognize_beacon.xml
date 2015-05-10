@@ -10,9 +10,19 @@
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="184dp"
-            android:layout_height="184dp"
+            android:layout_width="139dp"
+            android:layout_height="139dp"
             android:id="@+id/progressBar"
             android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="132dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/BeaconFoundNotification"
+            android:id="@+id/labelBeaconFoundNotififaction"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:visibility="invisible" />
     </FrameLayout>
 </LinearLayout>
