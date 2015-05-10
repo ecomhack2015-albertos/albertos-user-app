@@ -108,8 +108,8 @@ public class RecognizeBeacon extends Activity {
                 new Intent[]{notifyIntent},
                 PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new Notification.Builder(RecognizeBeacon.this)
-                .setSmallIcon(R.drawable.beacon_gray)
-                .setContentTitle("Albertos")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Alfredo's")
                 .setContentText(msg)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
@@ -143,7 +143,7 @@ public class RecognizeBeacon extends Activity {
 
         protected void onPostExecute(Integer result) {
             if (result == 200) {
-                postNotification("Ihr Essen wird jetzt zubereitet!");
+                postNotification("Your meal will be prepared!");
             }
         }
     }
