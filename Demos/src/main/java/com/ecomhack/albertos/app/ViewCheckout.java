@@ -28,7 +28,6 @@ import java.util.UUID;
  */
 
 public class ViewCheckout extends Activity{
-
     Cart cart;
 
     @Override
@@ -66,7 +65,6 @@ public class ViewCheckout extends Activity{
                 ArrayList<NameValuePair> postParams = new ArrayList<NameValuePair>();
                 postParams.add(new BasicNameValuePair("user", "a29eda3c-5cc2-4afc-bd37-6d2723fc5551"));
                 post.setEntity(new UrlEncodedFormEntity(postParams));
-                cart.clear();
                 client.execute(post);
             } catch (IOException e) {
                 e.printStackTrace();

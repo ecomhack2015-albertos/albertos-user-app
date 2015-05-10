@@ -36,5 +36,6 @@ public class Cart {
 
     public void clear(){
         items = new ArrayList<FoodItem>();
+        total = 0;
     }
 }
