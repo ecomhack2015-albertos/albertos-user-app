@@ -51,17 +51,6 @@ public class ViewMenuActivity extends Activity {
       }
     });
 
-    // TEST //
-    //testActivity code
-    findViewById(R.id.buttonTestActivity).setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), RecognizeBeacon.class);
-        startActivity(intent);
-      }
-    });
-
   }
 
   private class GetProductsTask extends AsyncTask<String, Void, Integer> {
