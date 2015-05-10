@@ -109,7 +109,7 @@ public class RecognizeBeacon extends Activity {
                 PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new Notification.Builder(RecognizeBeacon.this)
                 .setSmallIcon(R.drawable.beacon_gray)
-                .setContentTitle("Notify Demo")
+                .setContentTitle("Albertos")
                 .setContentText(msg)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
