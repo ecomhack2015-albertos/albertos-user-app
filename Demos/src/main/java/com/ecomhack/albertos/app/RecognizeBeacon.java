@@ -38,6 +38,8 @@ public class RecognizeBeacon extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.recognize_beacon);
+
         region = new Region("regionId", "b9407f30-f5f8-466e-aff9-25556b57fe6d", 48735, 25);
 
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
