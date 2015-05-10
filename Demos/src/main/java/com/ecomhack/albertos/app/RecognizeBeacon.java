@@ -150,6 +150,7 @@ public class RecognizeBeacon extends Activity {
                 ProgressBar spinner;
                 spinner = (ProgressBar)findViewById(R.id.progressBar);
                 spinner.setVisibility(View.GONE);
+
                 postNotification("Your meal will be prepared!");
             }
         }

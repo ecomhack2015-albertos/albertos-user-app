@@ -29,6 +29,7 @@ import java.util.UUID;
 
 public class ViewCheckout extends Activity{
 
+    Cart cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,10 @@ public class ViewCheckout extends Activity{
 
         setContentView(R.layout.checkout);
 
-        final Cart cart = AlfredosUserApplication.cart;
+        cart = AlfredosUserApplication.cart;
 
         final Button payButton = (Button) findViewById(R.id.payment);
-        payButton.setText(String.format("Pay now (Total: %.2f Euro)", (float) cart.getTotal() / 100));
+        payButton.setText(String.format("Confirm Payment and check out with Paypal (Total: %.2f Euro)", (float) cart.getTotal() / 100));
 
         payButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +66,7 @@ public class ViewCheckout extends Activity{
                 ArrayList<NameValuePair> postParams = new ArrayList<NameValuePair>();
                 postParams.add(new BasicNameValuePair("user", "a29eda3c-5cc2-4afc-bd37-6d2723fc5551"));
                 post.setEntity(new UrlEncodedFormEntity(postParams));
-
+                cart.clear();
                 client.execute(post);
             } catch (IOException e) {
                 e.printStackTrace();
