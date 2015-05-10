@@ -66,7 +66,7 @@ public class ViewMenuActivity extends Activity {
 
     protected Integer doInBackground(String... params) {
       try {
-        URL url = new URL("http://10.0.2.2:9000/products");
+        URL url = new URL(AlfredosUserApplication.ApiURL + "/products");
         HttpClient client = new DefaultHttpClient();
         HttpGet get = new HttpGet(url.toString());
         HttpResponse response = client.execute(get);

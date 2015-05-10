@@ -13,6 +13,9 @@ public class AlfredosUserApplication extends Application {
 
   public static Cart cart = new Cart();
 
+  // TODO put this into a config file
+  public static String ApiURL = "http://10.1.227.4:9000";
+
   @Override
   public void onCreate() {
     super.onCreate();

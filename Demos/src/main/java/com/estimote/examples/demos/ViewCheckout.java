@@ -65,7 +65,7 @@ public class ViewCheckout extends Activity{
 
         protected Integer doInBackground(String... params) {
             try {
-                URL url = new URL("http://10.0.2.2:9000/orders");
+                URL url = new URL(AlfredosUserApplication.ApiURL + "/orders");
                 HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(url.toString());
 
