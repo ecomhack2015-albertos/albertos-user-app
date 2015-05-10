@@ -8,13 +8,13 @@
   <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
   <application
-      android:name=".AlfredosUserApplication"
+      android:name="com.ecomhack.albertos.app.AlfredosUserApplication"
       android:label="Alfredo's"
       android:icon="@mipmap/ic_launcher"
       android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
 
     <activity
-        android:name=".ViewMenuActivity"
+        android:name="com.ecomhack.albertos.app.ViewMenuActivity"
         android:label="Alfredo's"
         android:screenOrientation="portrait">
       <intent-filter>
@@ -24,13 +24,13 @@
     </activity>
 
       <activity
-          android:name=".ViewCartActivity"
+          android:name="com.ecomhack.albertos.app.ViewCartActivity"
           android:label="Cart"
           android:screenOrientation="portrait">
       </activity>
 
       <activity
-          android:name=".ViewCheckout"
+          android:name="com.ecomhack.albertos.app.ViewCheckout"
           android:label="Checkout"
           android:screenOrientation="portrait">
       </activity>
@@ -58,7 +58,7 @@
              android:exported="false"/>
 -->
       <activity
-          android:name=".RecognizeBeacon"
+          android:name="com.ecomhack.albertos.app.RecognizeBeacon"
           android:label="@string/title_recognize_beacon" >
       </activity>
   </application>

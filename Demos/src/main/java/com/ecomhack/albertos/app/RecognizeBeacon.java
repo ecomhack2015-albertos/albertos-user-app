@@ -1,4 +1,4 @@
-package com.estimote.examples.demos;
+package com.ecomhack.albertos.app;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.estimote.examples.demos.R;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
