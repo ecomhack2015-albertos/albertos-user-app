@@ -1,4 +1,4 @@
-package com.ecomhack.albertos.app;
+package com.estimote.examples.demos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,13 +6,22 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;

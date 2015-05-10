@@ -1,4 +1,4 @@
-package com.ecomhack.albertos.app;
+package com.estimote.examples.demos;
 
 public class FoodItem {
 

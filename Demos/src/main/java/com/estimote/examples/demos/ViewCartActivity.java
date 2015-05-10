@@ -1,4 +1,4 @@
-package com.ecomhack.albertos.app;
+package com.estimote.examples.demos;
 
 import android.app.Activity;
 import android.content.Intent;
