@@ -46,7 +46,7 @@ public class RecognizeBeacon extends Activity {
 
         region = new Region("regionId", "b9407f30-f5f8-466e-aff9-25556b57fe6d", 48735, 25);
 
-        cart = AlfredosUserApplication.cart;
+        cart = AlbertosUserApplication.cart;
 
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
