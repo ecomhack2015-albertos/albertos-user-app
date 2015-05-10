@@ -46,7 +46,7 @@ public class ViewCheckout extends Activity{
             public void onClick(View view) {
                 new PlaceOrderTask().execute();
                 Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), ViewCheckout.class);
+                intent.setClass(getApplicationContext(), RecognizeBeacon.class);
                 startActivity(intent);
             }
 
