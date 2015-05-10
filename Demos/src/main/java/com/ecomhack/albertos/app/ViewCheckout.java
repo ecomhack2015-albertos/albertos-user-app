@@ -19,7 +19,6 @@ import org.apache.http.message.BasicNameValuePair;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * Shows the menu for the current date.
@@ -36,7 +35,7 @@ public class ViewCheckout extends Activity{
 
         setContentView(R.layout.checkout);
 
-        cart = AlfredosUserApplication.cart;
+        cart = AlbertosUserApplication.cart;
 
         final Button payButton = (Button) findViewById(R.id.payment);
         payButton.setText(String.format("Confirm Payment and check out with PayPal (Total: %.2f Euro)", (float) cart.getTotal() / 100));
@@ -58,7 +57,7 @@ public class ViewCheckout extends Activity{
 
         protected Integer doInBackground(String... params) {
             try {
-                URL url = new URL(AlfredosUserApplication.ApiURL + "/orders");
+                URL url = new URL(AlbertosUserApplication.ApiURL + "/orders");
                 HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(url.toString());
 

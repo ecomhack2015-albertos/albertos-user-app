@@ -27,7 +27,7 @@ public class ViewCartActivity extends Activity {
 
         setContentView(R.layout.view_cart);
 
-        final Cart cart = AlfredosUserApplication.cart;
+        final Cart cart = AlbertosUserApplication.cart;
 
         ArrayList<FoodItem> valueList = cart.getItems();
 

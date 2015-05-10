@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don´t blaim us for anything! :]"
+            android:text="Don´t blame us for anything! :]"
             android:id="@+id/textView3"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
