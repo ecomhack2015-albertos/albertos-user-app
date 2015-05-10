@@ -9,16 +9,17 @@ import android.widget.Button;
 
 import com.estimote.examples.demos.R;
 
-import org.apache.http.NameValuePair;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * Shows the menu for the current date.
@@ -61,10 +62,31 @@ public class ViewCheckout extends Activity{
                 HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(url.toString());
 
-                ArrayList<NameValuePair> postParams = new ArrayList<NameValuePair>();
-                postParams.add(new BasicNameValuePair("user", "a29eda3c-5cc2-4afc-bd37-6d2723fc5551"));
-                post.setEntity(new UrlEncodedFormEntity(postParams));
-                client.execute(post);
+                JSONObject obj = new JSONObject();
+                try {
+                    JSONArray items = new JSONArray();
+
+                    for (FoodItem item : cart.getItems()) {
+                        JSONObject itemObject = new JSONObject();
+                        JSONObject foodObject = new JSONObject();
+                        foodObject.put("id", item.getSku());
+                        foodObject.put("name", item.getName());
+                        foodObject.put("price", item.getPrice());
+                        itemObject.put("food", foodObject);
+                        itemObject.put("quantity", 1);
+                        items.put(itemObject);
+                    }
+                    obj.put("userId", "a29eda3c-5cc2-4afc-bd37-6d2723fc5551");
+                    obj.put("lineItems", items);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                post.setEntity(new StringEntity(obj.toString()));
+
+                HttpResponse response = client.execute(post);
+                System.out.println(response.getStatusLine().getStatusCode());
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
