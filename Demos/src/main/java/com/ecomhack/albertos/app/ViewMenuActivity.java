@@ -73,7 +73,7 @@ public class ViewMenuActivity extends Activity {
     }
 
     private FoodItem getFoodItemFromJson(JSONObject json) throws JSONException {
-      return new FoodItem(json.getString("name"), json.getString("id"), (int)json.getDouble("price"));
+      return new FoodItem(json.getString("name"), json.getString("id"), (int)json.getDouble("price") * 100);
     }
 
     protected void onPostExecute(Integer result) {
