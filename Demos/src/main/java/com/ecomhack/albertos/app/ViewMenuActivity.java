@@ -57,7 +57,7 @@ public class ViewMenuActivity extends Activity {
 
     protected Integer doInBackground(String... params) {
       try {
-        URL url = new URL(AlfredosUserApplication.ApiURL + "/products");
+        URL url = new URL(AlbertosUserApplication.ApiURL + "/products");
         HttpClient client = new DefaultHttpClient();
         HttpGet get = new HttpGet(url.toString());
         HttpResponse response = client.execute(get);
@@ -82,7 +82,7 @@ public class ViewMenuActivity extends Activity {
 
     protected void fillProductList()
     {
-      final Cart cart = AlfredosUserApplication.cart;
+      final Cart cart = AlbertosUserApplication.cart;
       final Button orderButton = (Button) findViewById(R.id.order);
 
       LinearLayout productsContainer = (LinearLayout) findViewById(R.id.products);

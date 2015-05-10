@@ -7,9 +7,9 @@ import com.estimote.sdk.EstimoteSDK;
 /**
  * Main {@link Application} object for Demos. It configures EstimoteSDK.
  *
- * @author Team Alfredos
+ * @author The Albertos
  */
-public class AlfredosUserApplication extends Application {
+public class AlbertosUserApplication extends Application {
 
   public static Cart cart = new Cart();
 

@@ -8,14 +8,14 @@
   <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
   <application
-      android:name="com.ecomhack.albertos.app.AlfredosUserApplication"
-      android:label="Alfredo's"
+      android:name="com.ecomhack.albertos.app.AlbertosUserApplication"
+      android:label="Alberto's"
       android:icon="@mipmap/ic_launcher"
       android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
 
     <activity
         android:name="com.ecomhack.albertos.app.ViewMenuActivity"
-        android:label="Alfredo's"
+        android:label="Alberto's"
         android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

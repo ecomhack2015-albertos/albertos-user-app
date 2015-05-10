@@ -125,7 +125,7 @@ public class RecognizeBeacon extends Activity {
     private class OrderUpdateTask extends AsyncTask<String, Void, Integer> {
         protected Integer doInBackground(String... orderIDs) {
             try {
-                URL url = new URL(AlfredosUserApplication.ApiURL + "/orders/" + orderIDs[0]);
+                URL url = new URL(AlbertosUserApplication.ApiURL + "/orders/" + orderIDs[0]);
                 HttpClient client = new DefaultHttpClient();
                 HttpPut put = new HttpPut(url.toString());
 
