@@ -1,4 +1,4 @@
-package com.estimote.examples.demos;
+package com.ecomhack.albertos.app;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.estimote.examples.demos.R;
 
 import java.util.ArrayList;
 
