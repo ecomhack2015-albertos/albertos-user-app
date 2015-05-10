@@ -90,14 +90,15 @@ public class ViewMenuActivity extends Activity {
       for (final FoodItem item : products) {
         Button button = new Button(getApplicationContext());
         button.setText(item.toString());
+        orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float) cart.getTotal() / 100));
         button.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                      cart.addItem(item);
-                                      orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float) cart.getTotal() / 100));
-                                      Toast.makeText(getApplicationContext(), String.format("%s was added to your cart.", item.getName()), Toast.LENGTH_SHORT).show();
-                                    }
-                                  }
+              cart.addItem(item);
+              orderButton.setText(String.format("Go To Cart (Total: %.2f €)", (float) cart.getTotal() / 100));
+              Toast.makeText(getApplicationContext(), String.format("%s was added to your cart.", item.getName()), Toast.LENGTH_SHORT).show();
+            }
+          }
         );
         productsContainer.addView(button);
       }
