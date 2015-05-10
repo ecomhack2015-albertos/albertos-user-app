@@ -150,7 +150,7 @@ public class RecognizeBeacon extends Activity {
         }
 
         protected void onPostExecute(Integer result) {
-            if (result == 200) {
+            if (result < 400) {
                 ProgressBar spinner = (ProgressBar)findViewById(R.id.progressBar);
                 spinner.setVisibility(View.GONE);
                 TextView button = (TextView)findViewById(R.id.labelBeaconFoundNotififaction);
