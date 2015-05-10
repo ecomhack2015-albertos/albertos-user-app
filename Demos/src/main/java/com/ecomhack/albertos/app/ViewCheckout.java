@@ -63,7 +63,7 @@ public class ViewCheckout extends Activity{
                 HttpPost post = new HttpPost(url.toString());
 
                 ArrayList<NameValuePair> postParams = new ArrayList<NameValuePair>();
-                postParams.add(new BasicNameValuePair("user", UUID.randomUUID().toString()));
+                postParams.add(new BasicNameValuePair("user", "a29eda3c-5cc2-4afc-bd37-6d2723fc5551"));
                 post.setEntity(new UrlEncodedFormEntity(postParams));
 
                 client.execute(post);

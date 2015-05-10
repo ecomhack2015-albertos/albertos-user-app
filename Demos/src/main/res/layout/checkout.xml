@@ -8,17 +8,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your Order"
+        android:text="AGB"
         android:id="@+id/textView2"
         android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="AGB"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="369dp"
+        android:layout_weight="1.00"
+        android:id="@+id/agbs">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don´t blaim us for anything! :]"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
