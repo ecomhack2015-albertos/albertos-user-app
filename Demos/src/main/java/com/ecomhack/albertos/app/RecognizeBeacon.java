@@ -142,7 +142,9 @@ public class RecognizeBeacon extends Activity {
         }
 
         protected void onPostExecute(Integer result) {
-            postNotification("" + result);
+            if (result == 200) {
+                postNotification("Ihr Essen wird jetzt zubereitet!");
+            }
         }
     }
 }
