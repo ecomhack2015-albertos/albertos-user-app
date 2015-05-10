@@ -12,6 +12,8 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.estimote.examples.demos.R;
 import com.estimote.sdk.Beacon;
@@ -145,6 +147,9 @@ public class RecognizeBeacon extends Activity {
 
         protected void onPostExecute(Integer result) {
             if (result == 200) {
+                ProgressBar spinner;
+                spinner = (ProgressBar)findViewById(R.id.progressBar);
+                spinner.setVisibility(View.GONE);
                 postNotification("Your meal will be prepared!");
             }
         }
